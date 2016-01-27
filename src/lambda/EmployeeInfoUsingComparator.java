@@ -10,9 +10,9 @@ public class EmployeeInfoUsingComparator {
 	};
 
 	public void sort(List<Employee> emps, final SortMethod method) {
-
+		EmployeeNameComparator EmpNameSort = new EmployeeNameComparator();
 		if (method == SortMethod.BYNAME) {
-			Collections.sort(emps, new EmployeeNameComparator());
+			Collections.sort(emps, EmpNameSort);
 		} else if (method == SortMethod.BYSALARY) {
 			Collections.sort(emps, new EmployeeSalaryComparator());
 		}

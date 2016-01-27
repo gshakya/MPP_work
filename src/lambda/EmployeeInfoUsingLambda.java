@@ -30,8 +30,7 @@ public class EmployeeInfoUsingLambda {
 					return 1;
 			}
 		});
-		
-		collections.so
+
 	}
 
 	public static void main(String[] args) {
