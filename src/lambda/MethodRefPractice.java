@@ -1,3 +1,5 @@
+package lambda;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -10,13 +12,14 @@ public class MethodRefPractice {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+    	MethodRefPractice mref= new MethodRefPractice();
         List<Integer>  numbers = Arrays.asList(1,2,3,4,5,6,7,8,9,10,11,12,13,15,16);
-        List<Integer> primeNumbers = findPrimeNumbers(numbers,  MethodRefPractice::isPrime);
+        List<Integer> primeNumbers = findPrimeNumbers(numbers,  mref::isPrime);
  
         System.out.println("Prime Numbers are "+primeNumbers);
     }
  
-    public boolean isPrime(int number) {
+    public  boolean isPrime(int number) {
         if(number == 1 ){
             return false;
         }
@@ -28,11 +31,9 @@ public class MethodRefPractice {
         return true; 
     }
  
-    public static List findPrimeNumbers(List<Integer> list, Predicate predicate) {
+    public static List<Integer> findPrimeNumbers(List<Integer> list, Predicate<Integer> predicate) {
         List<Integer> sortedNumbers = new ArrayList<>();
-        list.stream().filter((i) ->(predicate.test(i))).forEach((i) -> {
-            sortedNumbers.add(i);
-        });
+        list.stream().filter(predicate).forEach((sortedNumbers::add));
         return sortedNumbers;
  
     }
